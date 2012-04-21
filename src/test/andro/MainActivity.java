@@ -25,7 +25,7 @@ public class MainActivity extends Activity
 
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 String item = (String) arg0.getAdapter().getItem(arg2);
-                Toast.makeText(getApplicationContext(), item + " выбран", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), item + " выбран", Toast.LENGTH_SHORT).show();
             }
         });
         
