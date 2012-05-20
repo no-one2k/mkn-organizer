@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	android:id="@+id/widget32"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+        android:background="@color/back"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+	android:id="@+id/widget34"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:layout_weight="1000">
+<TextView
+	android:id="@+id/taskname_view"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;"
+	android:textSize="20sp"
+	android:typeface="sans"
+	android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_gravity="top"/>
+<LinearLayout
+	android:id="@+id/widget36"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_gravity="bottom">
+<TextView
+	android:id="@+id/start_view"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="StartDate"
+	android:gravity="center"
+	android:layout_weight="1000" 
+        android:textColor="@color/white"
+        android:layout_gravity="left"/>
+<TextView
+	android:id="@+id/finish_view"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="FinishDate"
+	android:gravity="center"
+	android:layout_weight="1000"
+        android:textColor="@color/white"
+	android:layout_gravity="right" />
+</LinearLayout>
+</LinearLayout>
+<CheckBox
+	android:id="@+id/ended_chb"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_gravity="right" />
+</LinearLayout>

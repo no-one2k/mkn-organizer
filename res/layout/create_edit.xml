@@ -106,7 +106,8 @@
 	android:layout_marginLeft="15dp"
 	android:text="10:00"
 	android:textSize="20sp"
-	android:typeface="sans" />
+	android:typeface="sans"
+        android:inputType="time"/>
 <EditText
 	android:id="@+id/finish_date_edit"
 	android:layout_width="wrap_content"
@@ -147,7 +148,8 @@
 	android:layout_marginLeft="15dp"
 	android:text="60"
 	android:textSize="20sp"
-	android:typeface="sans" />
+	android:typeface="sans"
+        android:numeric="integer"/>
 <TextView
 	android:id="@+id/taskname_label_copy_copy"
 	android:layout_width="wrap_content"
@@ -231,16 +233,16 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content">
 <Button
-	android:id="@+id/widget152"
+	android:id="@+id/ok_button"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="Button"
+	android:text="@android:string/ok"
 	android:layout_weight="1000" />
 <Button
-	android:id="@+id/widget153"
+	android:id="@+id/cancel_button"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:text="Button"
+	android:text="@android:string/cancel"
 	android:layout_weight="1000" />
 </LinearLayout>
 </LinearLayout>
