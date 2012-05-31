@@ -23,9 +23,12 @@ public final class R {
         public static final int yellow=0x7f030004;
     }
     public static final class id {
+        public static final int add_button=0x7f060027;
+        public static final int calendar_button=0x7f06002a;
         public static final int cancel_button=0x7f06001c;
         public static final int comment_edit=0x7f060019;
         public static final int create_label=0x7f060001;
+        public static final int diagram_button=0x7f06002b;
         public static final int duration_chb=0x7f060014;
         public static final int duration_edit=0x7f060013;
         public static final int duration_layout=0x7f060012;
@@ -36,8 +39,11 @@ public final class R {
         public static final int finish_time_edit=0x7f06000e;
         public static final int finish_view=0x7f060021;
         public static final int imp_radio=0x7f060017;
+        public static final int list_button=0x7f060029;
         public static final int notimp_radio=0x7f060018;
         public static final int ok_button=0x7f06001b;
+        public static final int show_all_button=0x7f060026;
+        public static final int sort_button=0x7f060025;
         public static final int start_chb=0x7f06000b;
         public static final int start_date_edit=0x7f060009;
         public static final int start_label=0x7f060006;
@@ -53,6 +59,8 @@ public final class R {
         public static final int widget150=0x7f060002;
         public static final int widget151=0x7f06001a;
         public static final int widget154=0x7f060003;
+        public static final int widget15_1=0x7f060028;
+        public static final int widget15__1=0x7f060024;
         public static final int widget32=0x7f060000;
         public static final int widget34=0x7f06001d;
         public static final int widget36=0x7f06001f;
@@ -66,6 +74,12 @@ public final class R {
         public static final int main=0x7f020002;
     }
     public static final class string {
+        public static final int add_button_caption=0x7f040006;
         public static final int app_name=0x7f040000;
+        public static final int calendar_button_caption=0x7f040002;
+        public static final int diagram_button_caption=0x7f040003;
+        public static final int list_button_caption=0x7f040001;
+        public static final int show_all_button_caption=0x7f040005;
+        public static final int sort_button_caption=0x7f040004;
     }
 }
