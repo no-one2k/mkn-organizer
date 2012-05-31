@@ -4,7 +4,6 @@
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$string.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity$2.class \
-/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$1$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/TaskPriority.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$color.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/BuildConfig.class \
