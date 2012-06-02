@@ -9,7 +9,9 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:orientation="vertical"
-	android:layout_weight="1000">
+	android:layout_weight="1000"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
 <TextView
 	android:id="@+id/taskname_view"
 	android:layout_width="wrap_content"
@@ -19,12 +21,16 @@
 	android:typeface="sans"
 	android:textStyle="bold"
         android:textColor="@color/white"
-        android:layout_gravity="top"/>
+        android:layout_gravity="top"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 <LinearLayout
 	android:id="@+id/widget36"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:layout_gravity="bottom">
+	android:layout_gravity="bottom"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
 <TextView
 	android:id="@+id/start_view"
 	android:layout_width="fill_parent"
@@ -33,7 +39,9 @@
 	android:gravity="center"
 	android:layout_weight="1000" 
         android:textColor="@color/white"
-        android:layout_gravity="left"/>
+        android:layout_gravity="left"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 <TextView
 	android:id="@+id/finish_view"
 	android:layout_width="fill_parent"
@@ -42,12 +50,16 @@
 	android:gravity="center"
 	android:layout_weight="1000"
         android:textColor="@color/white"
-	android:layout_gravity="right" />
+	android:layout_gravity="right" 
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 </LinearLayout>
 </LinearLayout>
 <CheckBox
 	android:id="@+id/ended_chb"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:layout_gravity="right" />
+	android:layout_gravity="right" 
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
 </LinearLayout>

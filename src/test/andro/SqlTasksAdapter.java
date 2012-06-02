@@ -39,28 +39,6 @@ public class SqlTasksAdapter extends BaseAdapter {
     private static final String KEY_ENDED = "ended";
     private static final int ENDED_COLUMN = 7;
 
-    private class ViewClickListener implements OnClickListener {
-        private View view;
-        private int position;
-        private long id;
-
-        public ViewClickListener(View view, int position, long id) {
-            this.view = view;
-            this.position = position;
-            this.id = id;
-        }
-
-        
-
-        public void onClick(View view) {
-            MainActivity instatce = MainActivity.getInstatce();
-            if(instatce!=null){
-                instatce.runEditActivity(position);
-            }
-        }
-
-       
-    }
     private Cursor cursor;
     private SQLiteDatabase database;
     private DbOpenHelper dbOpenHelper;
@@ -90,7 +68,6 @@ public class SqlTasksAdapter extends BaseAdapter {
         final Task item = getItem(position);
         TextView taskTextView = (TextView) view.findViewById(R.id.taskname_view);
         taskTextView.setText(item.getName());
-        taskTextView.setOnClickListener(new ViewClickListener(view,position,item.getId()));
         switch (item.getPriority()) {
             case Important: {
                 taskTextView.setTextColor(R.color.yellow);
