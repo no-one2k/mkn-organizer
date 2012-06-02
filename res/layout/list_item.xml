@@ -3,7 +3,6 @@
 	android:id="@+id/widget32"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-        android:background="@color/back"
 	xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout
 	android:id="@+id/widget34"

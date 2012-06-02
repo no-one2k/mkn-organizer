@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/back"
     >
 <TextView  
     android:id="@+id/textView"
@@ -10,10 +11,57 @@
     android:layout_height="wrap_content" 
     android:text="Hello World, MainActivity"
     />
+<LinearLayout
+	android:id="@+id/widget15__1"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+<Button
+	android:id="@+id/sort_button"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:text="@string/sort_button_caption"
+	android:layout_weight="1000" />
+<Button
+	android:id="@+id/show_all_button"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:text="@string/show_all_button_caption"
+	android:layout_weight="1000" />
+<Button
+	android:id="@+id/add_button"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:text="@string/add_button_caption"
+	android:layout_weight="1000" />
+</LinearLayout>
 <ListView
 	android:id="@android:id/list"
 	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+        android:layout_weight="1000"
+	android:gravity="top" />
+<LinearLayout
+	android:id="@+id/widget15_1"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+<Button
+	android:id="@+id/list_button"
+	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:gravity="center" />
+	android:text="@string/list_button_caption"
+	android:layout_weight="1000" />
+<Button
+	android:id="@+id/calendar_button"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="@string/calendar_button_caption"
+	android:layout_weight="1000" />
+<Button
+	android:id="@+id/diagram_button"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:text="@string/diagram_button_caption"
+	android:layout_weight="1000" />
+</LinearLayout>
 </LinearLayout>
 
