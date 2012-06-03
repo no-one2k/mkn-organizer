@@ -10,18 +10,19 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class SqlTasksAdapter extends BaseAdapter {
 
     private static final String DB_NAME = "tasks_db.sqlite3";
     private static final String TABLE_NAME = "tasks";
-    private static final int DB_VESION = 5;
+    private static final int DB_VESION = 7;
     private static final String KEY_ID = "_id";
     private static final int ID_COLUMN = 0;
     private static final String KEY_NAME = "name";
@@ -38,17 +39,41 @@ public class SqlTasksAdapter extends BaseAdapter {
     private static final int COMMENT_COLUMN = 6;
     private static final String KEY_ENDED = "ended";
     private static final int ENDED_COLUMN = 7;
-
+    
+    
     private Cursor cursor;
     private SQLiteDatabase database;
     private DbOpenHelper dbOpenHelper;
     private Context context;
+    private Date filterDate=null;
+    
+    private static SqlTasksAdapter instance=null;
 
-    public SqlTasksAdapter(Context context) {
+    public static SqlTasksAdapter getInstance(Context context) {
+        if (instance==null){
+            instance=new SqlTasksAdapter(context);
+        }
+        return instance;
+    }
+    
+    
+
+    private SqlTasksAdapter(Context context) {
         super();
         this.context = context;
         init();
     }
+
+    public Date getFilterDate() {
+        return filterDate;
+    }
+
+    public void setFilterDate(Date filterDate) {
+        this.filterDate = filterDate;
+        refresh();
+    }
+    
+    
 
     @Override
     public long getItemId(int position) {
@@ -83,9 +108,9 @@ public class SqlTasksAdapter extends BaseAdapter {
             break;
         }
         TextView startTextView = (TextView) view.findViewById(R.id.start_view);
-        startTextView.setText(item.getStartDate().toGMTString());
+        startTextView.setText(Task.getDateTimeFormat().format(item.getStartDate()));
         TextView finishTextView = (TextView) view.findViewById(R.id.finish_view);
-        finishTextView.setText(item.getFinishDate().toGMTString());
+        finishTextView.setText(Task.getDateTimeFormat().format(item.getFinishDate()));
         CheckBox endedBox = (CheckBox) view.findViewById(R.id.ended_chb);
         endedBox.setChecked(!item.isEnded());
         return view;
@@ -133,8 +158,11 @@ public class SqlTasksAdapter extends BaseAdapter {
 
     public Cursor getAllEntries() {
         String[] columnsToTake = {KEY_ID, KEY_NAME, KEY_START, KEY_FINISH, KEY_DURATION, KEY_PRIORITY, KEY_COMMENT, KEY_ENDED};
-        return database.query(TABLE_NAME, columnsToTake,
-                null, null, null, null, KEY_ID);
+        String dateFilter=null;
+        if (getFilterDate()!=null){
+            dateFilter = KEY_START+" like '%"+Task.getDateFormat().format(getFilterDate())+"%'";
+        }
+        return database.query(TABLE_NAME, columnsToTake, dateFilter, null, null, null, KEY_ID);
     }
 
     public long addItem(Task task) {
@@ -149,8 +177,8 @@ public class SqlTasksAdapter extends BaseAdapter {
     private ContentValues taskToValues(Task task) {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, task.getName());
-        values.put(KEY_START, task.getStartDate().toGMTString());
-        values.put(KEY_FINISH, task.getFinishDate().toGMTString());
+        values.put(KEY_START, Task.getDateTimeFormat().format(task.getStartDate()));
+        values.put(KEY_FINISH, Task.getDateTimeFormat().format(task.getFinishDate()));
         values.put(KEY_DURATION, task.getDurationInMinutes());
         values.put(KEY_PRIORITY, task.getPriority().ordinal());
         values.put(KEY_COMMENT, task.getComment());
@@ -179,7 +207,7 @@ public class SqlTasksAdapter extends BaseAdapter {
         dbOpenHelper.close();
     }
 
-    private void refresh() {
+    public void refresh() {
         cursor = getAllEntries();
         notifyDataSetChanged();
     }
@@ -200,24 +228,27 @@ public class SqlTasksAdapter extends BaseAdapter {
 
     private void addInitValues() {
         Task task = new Task(1, "tasktask1");
-        task.setStartDate(Calendar.getInstance().getTime());
-        task.setFinishDate(Calendar.getInstance().getTime());
+        Date time = Calendar.getInstance().getTime();
+        Date yesterday=(Date) time.clone();
+        yesterday.setDate(time.getDate()-1);
+        task.setStartDate(yesterday);
+        task.setFinishDate(yesterday);
         task.setDurationInMinutes(60);
         task.setPriority(TaskPriority.Important);
         task.setComment("dfgdfgdfgdf");
         task.setEnded(false);
         addItem(task);
         task = new Task(1, "tasktask2");
-        task.setStartDate(Calendar.getInstance().getTime());
-        task.setFinishDate(Calendar.getInstance().getTime());
+        task.setStartDate(time);
+        task.setFinishDate(time);
         task.setDurationInMinutes(30);
         task.setPriority(TaskPriority.VeryImportant);
         task.setComment("dfgdfgdfgdf");
         task.setEnded(false);
         addItem(task);
         task = new Task(1, "tasktask3");
-        task.setStartDate(Calendar.getInstance().getTime());
-        task.setFinishDate(Calendar.getInstance().getTime());
+        task.setStartDate(time);
+        task.setFinishDate(time);
         task.setDurationInMinutes(90);
         task.setPriority(TaskPriority.NotImportant);
         task.setComment("dfgdfgdfgdf");

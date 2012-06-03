@@ -7,6 +7,9 @@
     <string name="sort_button_caption">Сортировать</string>
     <string name="show_all_button_caption">Показать всё</string>
     <string name="add_button_caption">+</string>
+    <string name="task_psevdopic">\u2585</string>
+    <string name="create_task_title">Создание новой задачи</string>
+    <string name="edit_task_title">Редактирование задачи</string>
     <array name="listdata">
         <item>1</item>
         <item>2</item>

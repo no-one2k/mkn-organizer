@@ -1,12 +1,43 @@
 package test.andro;
 
+import android.util.Log;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author noone
  */
 public class Task {
+    
+    private static final String DATE_FORMAT = "dd.MM.yyyy";
+    private static SimpleDateFormat dateFormat= new SimpleDateFormat(DATE_FORMAT,Locale.US);
+
+    public static SimpleDateFormat getDateFormat() {
+        return dateFormat;
+    }
+    
+    private static final String TIME_FORMAT = "HH:mm";
+    private static SimpleDateFormat timeFormat= new SimpleDateFormat(TIME_FORMAT,Locale.US);
+
+    public static SimpleDateFormat getTimeFormat() {
+        return timeFormat;
+    }
+    
+    private static final String DATE_TIME_FORMAT = DATE_FORMAT+" "+TIME_FORMAT;
+    private static SimpleDateFormat dateTimeFormat= new SimpleDateFormat(DATE_TIME_FORMAT,Locale.US);
+
+    public static SimpleDateFormat getDateTimeFormat() {
+        return dateTimeFormat;
+    }
+   
+    
+    
     long _id;
     String name;
     Date startDate;
@@ -19,6 +50,11 @@ public class Task {
     public Task(long _id, String name) {
         this._id = _id;
         this.name = name;
+        startDate=Calendar.getInstance().getTime();
+        finishDate=Calendar.getInstance().getTime();
+        durationInMinutes=0;
+        comment="";
+        priority=TaskPriority.Important;
     }
     
     
@@ -98,7 +134,17 @@ public class Task {
     }
 
     private Date string2Date(String stringDate) {
-        return (stringDate!=null)? new Date(Date.parse(stringDate)):null;
+        if ((stringDate==null)|| ("".equalsIgnoreCase(stringDate))){
+            return null;
+                  }
+        else{
+            try {
+                return getDateTimeFormat().parse(stringDate);
+            } catch (ParseException ex) {
+                Log.d("task", "date parsing failed",ex);
+                return null;
+            }
+        }
     }
     
     

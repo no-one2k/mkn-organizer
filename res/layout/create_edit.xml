@@ -1,248 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-	android:id="@+id/widget32"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical"
-        android:background="@color/back"
-	xmlns:android="http://schemas.android.com/apk/res/android">
-<TextView
-	android:id="@+id/create_label"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="&#1057;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1077; &#1085;&#1086;&#1074;&#1086;&#1081; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;"
-	android:textSize="20sp"
-	android:typeface="sans"
-	android:textColor="@color/white"
-	android:layout_gravity="center_horizontal" />
-<ScrollView
-	android:id="@+id/widget150"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_weight="1000">
-<LinearLayout
-	android:id="@+id/widget154"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical">
-<TextView
-	android:id="@+id/taskname_label"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="&#1053;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1077; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:"
-	android:typeface="sans"
-	android:textStyle="bold"
-	android:textColor="@color/darkgray" />
-<EditText
-	android:id="@+id/taskname_edit"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:padding="15dp"
-	android:layout_marginLeft="15dp"
-	android:layout_marginRight="15dp"
-	android:text="&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;"
-	android:textSize="20sp"
-	android:layout_gravity="center_horizontal" />
-<TextView
-	android:id="@+id/start_label"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="&#1042;&#1088;&#1077;&#1084;&#1103; &#1080; &#1076;&#1072;&#1090;&#1072; &#1085;&#1072;&#1095;&#1072;&#1083;&#1072; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:"
-	android:typeface="sans"
-	android:textStyle="bold"
-	android:textColor="@color/darkgray" />
-<LinearLayout
-	android:id="@+id/start_layout"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_gravity="center_horizontal">
-<EditText
-	android:id="@+id/start_time_edit"
-	android:layout_width="80dp"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="10:00"
-	android:textSize="20sp"
-	android:typeface="sans" />
-<EditText
-	android:id="@+id/start_date_edit"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="20.05.2012"
-	android:textSize="20sp"
-	android:typeface="sans" />
-<TextView
-	android:id="@+id/widget57_copy"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_weight="1000" />
-<CheckBox
-	android:id="@+id/start_chb"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginRight="15dp"
-	android:layout_gravity="right" />
-</LinearLayout>
-<TextView
-	android:id="@+id/taskname_label_copy_copy"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="&#1042;&#1088;&#1077;&#1084;&#1103; &#1080; &#1076;&#1072;&#1090;&#1072; &#1086;&#1082;&#1086;&#1085;&#1095;&#1072;&#1085;&#1080;&#1103; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:"
-	android:typeface="sans"
-	android:textStyle="bold"
-	android:textColor="@color/darkgray" />
-<LinearLayout
-	android:id="@+id/finish_layout"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-<EditText
-	android:id="@+id/finish_time_edit"
-	android:layout_width="80dp"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="10:00"
-	android:textSize="20sp"
-	android:typeface="sans"
-        android:inputType="time"/>
-<EditText
-	android:id="@+id/finish_date_edit"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="20.05.2012"
-	android:textSize="20sp"
-	android:typeface="sans" />
-<TextView
-	android:id="@+id/widget57"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_weight="1000" />
-<CheckBox
-	android:id="@+id/finish_chb"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginRight="15dp"
-	android:layout_gravity="right" />
-</LinearLayout>
-<TextView
-	android:id="@+id/taskname_label_copy_copy"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1100; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:"
-	android:typeface="sans"
-	android:textStyle="bold"
-	android:textColor="@color/darkgray" />
-<LinearLayout
-	android:id="@+id/duration_layout"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-<EditText
-	android:id="@+id/duration_edit"
-	android:layout_width="80dp"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="60"
-	android:textSize="20sp"
-	android:typeface="sans"
-        android:numeric="integer"/>
-<TextView
-	android:id="@+id/taskname_label_copy_copy"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="&#1084;&#1080;&#1085;&#1091;&#1090;"
-	android:typeface="sans"
-	android:textStyle="bold"
-	android:textColor="@color/darkgray"
-	android:layout_weight="1000" />
-<CheckBox
-	android:id="@+id/duration_chb"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="30dp"
-	android:layout_marginRight="15dp"
-	android:layout_gravity="right" />
-</LinearLayout>
-<TextView
-	android:id="@+id/taskname_label_copy_copy"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="&#1042;&#1072;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:"
-	android:typeface="sans"
-	android:textStyle="bold"
-	android:textColor="@color/darkgray" />
-<RadioGroup
-	android:id="@+id/widget59"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-<RadioButton
-	android:id="@+id/veryimp_radio"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="25dp"
-	android:text="&#1054;&#1095;&#1077;&#1085;&#1100; &#1074;&#1072;&#1078;&#1085;&#1072;&#1103;"
-	android:textSize="20sp"
-	android:typeface="sans"
-	android:textColor="@color/red" />
-<RadioButton
-	android:id="@+id/imp_radio"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="25dp"
-	android:text="&#1042;&#1072;&#1078;&#1085;&#1072;&#1103;"
-	android:textSize="20sp"
-	android:typeface="sans"
-	android:textColor="@color/yellow" />
-<RadioButton
-	android:id="@+id/notimp_radio"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="25dp"
-	android:text="&#1053;&#1077; &#1086;&#1095;&#1077;&#1085;&#1100; &#1074;&#1072;&#1078;&#1085;&#1072;&#1103;"
-	android:textSize="20sp"
-	android:typeface="sans"
-	android:textColor="@color/blue" />
-</RadioGroup>
-<TextView
-	android:id="@+id/taskname_label_copy_copy"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:text="&#1050;&#1086;&#1084;&#1084;&#1077;&#1085;&#1090;&#1072;&#1088;&#1080;&#1081; &#1082; &#1079;&#1072;&#1076;&#1072;&#1095;&#1077;:"
-	android:typeface="sans"
-	android:textStyle="bold"
-	android:textColor="@color/darkgray" />
-<EditText
-	android:id="@+id/comment_edit"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:layout_marginLeft="15dp"
-	android:layout_marginRight="15dp"
-	android:text="&#1050;&#1086;&#1084;&#1084;&#1077;&#1085;&#1090;&#1072;&#1088;&#1080;&#1081;"
-	android:textSize="20sp" />
-</LinearLayout>
-</ScrollView>
-<LinearLayout
-	android:id="@+id/widget151"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-<Button
-	android:id="@+id/ok_button"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="@android:string/ok"
-	android:layout_weight="1000" />
-<Button
-	android:id="@+id/cancel_button"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:text="@android:string/cancel"
-	android:layout_weight="1000" />
-</LinearLayout>
+    android:id="@+id/widget32"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/back"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/create_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_task_title"
+        android:textSize="20sp"
+        android:typeface="sans"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal" />
+    <ScrollView
+        android:id="@+id/widget150"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1000">
+        <LinearLayout
+            android:id="@+id/widget154"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/taskname_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="&#1053;&#1072;&#1079;&#1074;&#1072;&#1085;&#1080;&#1077; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:textColor="@color/darkgray" />
+            <EditText
+                android:id="@+id/taskname_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="&#1047;&#1072;&#1076;&#1072;&#1095;&#1072;"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal" />
+            <TextView
+                android:id="@+id/start_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="&#1042;&#1088;&#1077;&#1084;&#1103; &#1080; &#1076;&#1072;&#1090;&#1072; &#1085;&#1072;&#1095;&#1072;&#1083;&#1072; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:textColor="@color/darkgray" />
+            <LinearLayout
+                android:id="@+id/start_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+                <EditText
+                    android:id="@+id/start_time_edit"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="10:00"
+                    android:textSize="20sp"
+                    android:typeface="sans" />
+                <EditText
+                    android:id="@+id/start_date_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="20.05.2012"
+                    android:textSize="20sp"
+                    android:typeface="sans" />
+                <TextView
+                    android:id="@+id/widget57_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1000" />
+                <CheckBox
+                    android:id="@+id/start_chb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="right" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/taskname_label_copy_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="&#1042;&#1088;&#1077;&#1084;&#1103; &#1080; &#1076;&#1072;&#1090;&#1072; &#1086;&#1082;&#1086;&#1085;&#1095;&#1072;&#1085;&#1080;&#1103; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:textColor="@color/darkgray" />
+            <LinearLayout
+                android:id="@+id/finish_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/finish_time_edit"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="10:00"
+                    android:textSize="20sp"
+                    android:typeface="sans"
+                    android:inputType="time"/>
+                <EditText
+                    android:id="@+id/finish_date_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="20.05.2012"
+                    android:textSize="20sp"
+                    android:typeface="sans" />
+                <TextView
+                    android:id="@+id/widget57"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1000" />
+                <CheckBox
+                    android:id="@+id/finish_chb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="right" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/taskname_label_copy_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1100; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:textColor="@color/darkgray" />
+            <LinearLayout
+                android:id="@+id/duration_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/duration_edit"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="60"
+                    android:textSize="20sp"
+                    android:typeface="sans"
+                    android:numeric="integer"/>
+                <TextView
+                    android:id="@+id/taskname_label_copy_copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="&#1084;&#1080;&#1085;&#1091;&#1090;"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="@color/darkgray"
+                    android:layout_weight="1000" />
+                <CheckBox
+                    android:id="@+id/duration_chb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="right" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/taskname_label_copy_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="&#1042;&#1072;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;:"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:textColor="@color/darkgray" />
+            <RadioGroup
+                android:id="@+id/widget59"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/veryimp_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:text="&#1054;&#1095;&#1077;&#1085;&#1100; &#1074;&#1072;&#1078;&#1085;&#1072;&#1103;"
+                    android:textSize="20sp"
+                    android:typeface="sans"
+                    android:textColor="@color/red" />
+                <RadioButton
+                    android:id="@+id/imp_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:text="&#1042;&#1072;&#1078;&#1085;&#1072;&#1103;"
+                    android:textSize="20sp"
+                    android:typeface="sans"
+                    android:textColor="@color/yellow" 
+                    android:checked="true"/>
+                <RadioButton
+                    android:id="@+id/notimp_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:text="&#1053;&#1077; &#1086;&#1095;&#1077;&#1085;&#1100; &#1074;&#1072;&#1078;&#1085;&#1072;&#1103;"
+                    android:textSize="20sp"
+                    android:typeface="sans"
+                    android:textColor="@color/blue" />
+            </RadioGroup>
+            <TextView
+                android:id="@+id/taskname_label_copy_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="&#1050;&#1086;&#1084;&#1084;&#1077;&#1085;&#1090;&#1072;&#1088;&#1080;&#1081; &#1082; &#1079;&#1072;&#1076;&#1072;&#1095;&#1077;:"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:textColor="@color/darkgray" />
+            <EditText
+                android:id="@+id/comment_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="&#1050;&#1086;&#1084;&#1084;&#1077;&#1085;&#1090;&#1072;&#1088;&#1080;&#1081;"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/widget151"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/ok"
+            android:layout_weight="1000" />
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/cancel"
+            android:layout_weight="1000" />
+    </LinearLayout>
 </LinearLayout>
