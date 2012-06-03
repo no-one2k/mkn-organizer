@@ -1,53 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:background="@drawable/bg">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/back">
 
 
-	<LinearLayout
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:orientation="horizontal"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
-		<ImageView
-			android:id="@+id/prevMonth"
-			android:src="@drawable/calendar_left_arrow_selector"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content">
-		</ImageView>
-		<Button
-			android:id="@+id/currentMonth"
-			android:layout_weight="0.6"
-			android:textColor="#FFFFFF"
-			android:textAppearance="?android:attr/textAppearanceMedium"
-			android:background="@drawable/calendar_bar"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content">
-		</Button>
-		<ImageView
-			android:id="@+id/nextMonth"
-			android:src="@drawable/calendar_right_arrow_selector"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content">
-		</ImageView>
-	</LinearLayout>
+        <ImageView
+            android:id="@+id/prevMonth"
+            android:src="@drawable/calendar_left_arrow_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ImageView>
+        <Button
+            android:id="@+id/currentMonth"
+            android:layout_weight="0.6"
+            android:textColor="#FFFFFF"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:background="@drawable/calendar_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </Button>
+        <ImageView
+            android:id="@+id/nextMonth"
+            android:src="@drawable/calendar_right_arrow_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ImageView>
+    </LinearLayout>
 
-
-	<GridView
-		android:id="@+id/calendar"
-		android:numColumns="7"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content">
-	</GridView>
-        <View
-                android:id="@+id/calendar_list"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content">
-	</View>
+    <ScrollView
+        android:id="@+id/widget150"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1000">
+        <LinearLayout
+            android:id="@+id/widget1_5_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <GridView
+                android:id="@+id/calendar"
+                android:numColumns="7"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="10"
+                android:isScrollContainer="false"
+                >
+            </GridView>
+            <ListView
+                android:id="@android:id/list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1000"/>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/widget15_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+        <Button
+            android:id="@+id/list_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/list_button_caption"
+            android:drawableTop="@android:drawable/ic_menu_agenda"
+            android:layout_weight="1000" />
+        <Button
+            android:id="@+id/calendar_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/calendar_button_caption"
+            android:drawableTop="@android:drawable/ic_menu_today"
+            android:layout_weight="1000" />
+        <Button
+            android:id="@+id/diagram_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/diagram_button_caption"
+            android:drawableTop="@android:drawable/ic_menu_send"
+            android:layout_weight="1000" />
+    </LinearLayout>
             
 
 </LinearLayout>

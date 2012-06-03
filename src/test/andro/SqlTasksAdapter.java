@@ -53,6 +53,9 @@ public class SqlTasksAdapter extends BaseAdapter {
         if (instance==null){
             instance=new SqlTasksAdapter(context);
         }
+        if (!instance.database.isOpen()){
+            instance.database = instance.dbOpenHelper.getWritableDatabase();
+        }
         return instance;
     }
     
@@ -162,7 +165,12 @@ public class SqlTasksAdapter extends BaseAdapter {
         if (getFilterDate()!=null){
             dateFilter = KEY_START+" like '%"+Task.getDateFormat().format(getFilterDate())+"%'";
         }
-        return database.query(TABLE_NAME, columnsToTake, dateFilter, null, null, null, KEY_ID);
+        try {
+            return database.query(TABLE_NAME, columnsToTake, dateFilter, null, null, null, KEY_ID);
+        } catch (Exception e) {
+            Log.e("ttttt", e.getMessage(),e);
+            return null;
+        }
     }
 
     public long addItem(Task task) {

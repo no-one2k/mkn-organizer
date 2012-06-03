@@ -48,10 +48,9 @@ public final class R {
     }
     public static final class id {
         public static final int add_button=0x7f08002c;
-        public static final int calendar=0x7f080034;
+        public static final int calendar=0x7f080035;
         public static final int calendar_button=0x7f08002f;
         public static final int calendar_day_gridcell=0x7f080000;
-        public static final int calendar_list=0x7f080035;
         public static final int cancel_button=0x7f080022;
         public static final int comment_edit=0x7f08001f;
         public static final int create_label=0x7f080007;
@@ -93,6 +92,7 @@ public final class R {
         public static final int widget154=0x7f080009;
         public static final int widget15_1=0x7f08002d;
         public static final int widget15__1=0x7f080029;
+        public static final int widget1_5_1=0x7f080034;
         public static final int widget32=0x7f080006;
         public static final int widget34=0x7f080023;
         public static final int widget34_2=0x7f080001;
