@@ -39,27 +39,28 @@
     <ScrollView
         android:id="@+id/widget150"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1000">
+        android:layout_height="fill_parent"
+        android:layout_weight="1000"
+        android:fillViewport="true"
+        android:measureAllChildren="true">
         <LinearLayout
             android:id="@+id/widget1_5_1"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:orientation="vertical">
             <GridView
                 android:id="@+id/calendar"
                 android:numColumns="7"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="10"
-                android:isScrollContainer="false"
+                android:layout_height="wrap_content"
+                android:layout_weight="5000"
                 >
             </GridView>
             <ListView
                 android:id="@android:id/list"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1000"/>
+                android:layout_weight="2000"/>
         </LinearLayout>
     </ScrollView>
     <LinearLayout
@@ -73,21 +74,24 @@
             android:layout_height="wrap_content"
             android:text="@string/list_button_caption"
             android:drawableTop="@android:drawable/ic_menu_agenda"
-            android:layout_weight="1000" />
+            android:layout_weight="1000"
+            android:onClick="runListActivity"/>
         <Button
             android:id="@+id/calendar_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/calendar_button_caption"
             android:drawableTop="@android:drawable/ic_menu_today"
-            android:layout_weight="1000" />
+            android:layout_weight="1000"
+            android:onClick="runCalendarActivity"/>
         <Button
             android:id="@+id/diagram_button"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/diagram_button_caption"
             android:drawableTop="@android:drawable/ic_menu_send"
-            android:layout_weight="1000" />
+            android:layout_weight="1000"
+            android:onClick="runDiagramActivity"/>
     </LinearLayout>
             
 

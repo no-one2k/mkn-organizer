@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MainActivity</string>
+    <string name="app_name">MKN Organizer</string>
     <string name="list_button_caption">Список</string>
     <string name="calendar_button_caption">Календарь</string>
     <string name="diagram_button_caption">Диаграмма</string>
@@ -10,6 +10,8 @@
     <string name="task_psevdopic">\u2585</string>
     <string name="create_task_title">Создание новой задачи</string>
     <string name="edit_task_title">Редактирование задачи</string>
+    <string name="menu_preferences">Личный кабинет</string>
+    <string name="menu_close">Выход</string>
     <array name="listdata">
         <item>1</item>
         <item>2</item>

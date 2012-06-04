@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -22,7 +21,7 @@ public class SqlTasksAdapter extends BaseAdapter {
 
     private static final String DB_NAME = "tasks_db.sqlite3";
     private static final String TABLE_NAME = "tasks";
-    private static final int DB_VESION = 7;
+    private static final int DB_VESION = 8;
     private static final String KEY_ID = "_id";
     private static final int ID_COLUMN = 0;
     private static final String KEY_NAME = "name";

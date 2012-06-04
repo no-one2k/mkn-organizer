@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <PreferenceScreen 
+ xmlns:android="http://schemas.android.com/apk/res/android">
+ <PreferenceCategory
+ android:title="Личный кабинет">
+ <CheckBoxPreference
+ android:key="center_message"
+ android:title="1"
+ android:summary="1"
+ android:persistent="true"
+ android:defaultValue="true"/> 
+ <EditTextPreference
+ android:key="text_message"
+ android:title="2"
+ android:summary="2"
+ android:defaultValue="2"
+ android:persistent="true"/> 
+ </PreferenceCategory>
+ </PreferenceScreen>

@@ -1,11 +1,14 @@
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes.dex : \
-/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity$4.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$style.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$drawable.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/SqlTasksAdapter$DbOpenHelper.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$3.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/RunInterfaceImpl.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$menu.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/DiagramActivity.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/RunInterface.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$string.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$5.class \
@@ -27,9 +30,10 @@
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/SqlTasksAdapter$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$6.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/PrefActivity.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$array.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$1.class \
-/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity$5.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$xml.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$4.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService$1$1$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity.class \

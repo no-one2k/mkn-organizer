@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/widget32"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/widget33"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20px"
+        android:text="&#1051;&#1080;&#1095;&#1085;&#1099;&#1081; &#1082;&#1072;&#1073;&#1080;&#1085;&#1077;&#1090;"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/widget34&#1059;&#1082;&#1072;&#1078;&#1090;"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="&#1059;&#1082;&#1072;&#1078;&#1080;&#1090;&#1077; &#1072;&#1076;&#1088;&#1077;&#1089; &#1101;&#1083;&#1077;&#1082;&#1090;&#1088;&#1086;&#1085;&#1085;&#1086;&#1081; &#1087;&#1086;&#1095;&#1090;&#1099;, &#1085;&#1072; &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1042;&#1099; &#1093;&#1086;&#1090;&#1080;&#1090;&#1077; &#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1090;&#1100; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103;."
+        android:textColor="@color/darkgray" />
+    <TextView
+        android:id="@+id/widget35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="e-mail:"
+        android:textStyle="bold"
+        android:textColor="@color/darkgray" />
+    <LinearLayout
+        android:id="@+id/widget36"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/widget37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_weight="100" />
+        <CheckBox
+            android:id="@+id/widget38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/widget34&#1059;&#1082;&#1072;&#1078;&#1090;_copy"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="&#1059;&#1082;&#1072;&#1078;&#1080;&#1090;&#1077; &#1074;&#1088;&#1077;&#1084;&#1103; &#1076;&#1086; &#1085;&#1072;&#1095;&#1072;&#1083;&#1072; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;, &#1079;&#1072; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1077; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1074;&#1099;&#1089;&#1083;&#1072;&#1090;&#1100; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1077;."
+        android:textColor="@color/darkgray" />
+    <TextView
+        android:id="@+id/widget35_copy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&#1059;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1103;&#1090;&#1100; &#1079;&#1072;:"
+        android:textStyle="bold"
+        android:textColor="@color/darkgray" />
+    <LinearLayout
+        android:id="@+id/widget36_copy"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/widget37"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="18sp"
+            android:layout_weight="0" />
+        <TextView
+            android:id="@+id/widget35_copy_copy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&#1084;&#1080;&#1085;&#1091;&#1090;"
+            android:textStyle="bold"
+            android:textColor="@color/darkgray"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/widget46"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:layout_weight="100"
+        android:layout_gravity="bottom">
+        <Button
+            android:id="@+id/widget47"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:layout_weight="100"
+            android:layout_gravity="right" />
+        <Button
+            android:id="@+id/widget45"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:layout_weight="100" />
+    </LinearLayout>
+</LinearLayout>
+

@@ -6,15 +6,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.*;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import java.util.Calendar;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends ListActivity implements RunInterface {
 
-    public static final int CALENDAR_ACTIVITY = 200;
+    public static final int PREF_ACTIVITY = 200;
     public static final int CREATE_EDIT_ACTIVITY = 100;
     public static final String FERTERTERTE = "ferterterte";
     private SqlTasksAdapter adapter;
@@ -51,6 +54,7 @@ public class MainActivity extends ListActivity {
             mService = null;
         }
     };
+    private RunInterface runInterfac;
 
     // посылаем команду сервису
     // подробности смотри в аналогичном коде сервиса
@@ -73,24 +77,25 @@ public class MainActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        runInterfac = new RunInterfaceImpl(this);
         setContentView(R.layout.main);
         adapter = SqlTasksAdapter.getInstance(this);
         adapter.setFilterDate(Calendar.getInstance().getTime());
         setListAdapter(adapter);
         btnCalendar = (Button) findViewById(R.id.calendar_button);
-        btnCalendar.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View arg0) {
-                runCalendarActivity();
-            }
-        });
+//        btnCalendar.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View arg0) {
+//                runCalendarActivity();
+//            }
+//        });
         btnDiagram = (Button) findViewById(R.id.diagram_button);
-        btnDiagram.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View arg0) {
-                runDiagramActivity();
-            }
-        });
+//        btnDiagram.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View arg0) {
+//                runDiagramActivity();
+//            }
+//        });
         btnAdd = (Button) findViewById(R.id.add_button);
         btnAdd.setOnClickListener(new View.OnClickListener() {
 
@@ -106,15 +111,43 @@ public class MainActivity extends ListActivity {
         //btnCalendar.performClick();
     }
 
-    public void runCalendarActivity() {
-        Intent intent = new Intent(getApplicationContext(), SimpleCalendarViewActivity.class);
-        startActivityForResult(intent, CALENDAR_ACTIVITY);
+    public void runListActivity(View v) {
+        runInterfac.runListActivity(v);
     }
 
-    public void runDiagramActivity() {
-        testService();
-        //Intent intent = new Intent(getApplicationContext(), SimpleCalendarViewActivity.class);
-        //startActivityForResult(intent, CALENDAR_ACTIVITY);
+    public void runDiagramActivity(View v) {
+        runInterfac.runDiagramActivity(v);
+    }
+
+    public void runCalendarActivity(View v) {
+        runInterfac.runCalendarActivity(v);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_preferences:{
+                
+                startActivityForResult(new Intent(getApplicationContext(), PrefActivity.class),PREF_ACTIVITY);
+                
+                
+            }break;
+            case R.id.menu_close:{
+                stopService(new Intent(this, NotifyService.class));
+                this.finish();
+                
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
     }
 
     public void runEditActivity(int position) {

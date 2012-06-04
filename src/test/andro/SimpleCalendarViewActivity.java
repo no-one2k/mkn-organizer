@@ -15,7 +15,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class SimpleCalendarViewActivity extends Activity implements OnClickListener {
+public class SimpleCalendarViewActivity extends Activity implements OnClickListener, RunInterface {
 
     private static final String tag = "SimpleCalendarViewActivity";
     private ImageView calendarToJournalButton;
@@ -29,6 +29,21 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
     private final DateFormat dateFormatter = new DateFormat();
     private static final String dateTemplate = "MMMM yyyy";
     private ListView listView;
+    private RunInterface runInterfac;
+
+    public void runListActivity(View v) {
+        runInterfac.runListActivity(v);
+    }
+
+    public void runDiagramActivity(View v) {
+        runInterfac.runDiagramActivity(v);
+    }
+
+    public void runCalendarActivity(View v) {
+        runInterfac.runCalendarActivity(v);
+    }
+    
+    
 
     /**
      * Called when the activity is first created.
@@ -36,8 +51,10 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        runInterfac=new RunInterfaceImpl(this);
         try {
             setContentView(R.layout.simple_calendar_view);
+            this.setTitle(null);
             
             _calendar = Calendar.getInstance(Locale.getDefault());
             month = _calendar.get(Calendar.MONTH) + 1;
@@ -57,9 +74,11 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
 
             // Initialised
             adapter = new GridCellAdapter(getApplicationContext(), R.id.calendar_day_gridcell, month, year);
-            adapter.notifyDataSetChanged();
-            calendarView.setAdapter(adapter);
             
+            calendarView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
+            //calendarView.setMinimumHeight(adapter.getView(1, null, null).getHeight()*4);
+            calendarView.setMinimumHeight(2500);
             listView = (ListView)findViewById(android.R.id.list);
             listView.setAdapter(SqlTasksAdapter.getInstance(this));
         } catch (Exception e) {
@@ -352,6 +371,7 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
             if (day_color[1].equals("BLUE")) {
                 gridcell.setTextColor(getResources().getColor(R.color.static_text_color));
             }
+            //rowHeight
             return row;
         }
 
