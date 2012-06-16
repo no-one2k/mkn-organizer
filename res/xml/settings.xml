@@ -1,19 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
- <PreferenceScreen 
- xmlns:android="http://schemas.android.com/apk/res/android">
- <PreferenceCategory
- android:title="Личный кабинет">
- <CheckBoxPreference
- android:key="center_message"
- android:title="1"
- android:summary="1"
- android:persistent="true"
- android:defaultValue="true"/> 
- <EditTextPreference
- android:key="text_message"
- android:title="2"
- android:summary="2"
- android:defaultValue="2"
- android:persistent="true"/> 
- </PreferenceCategory>
- </PreferenceScreen>
+<PreferenceScreen 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Личный кабинет">
+        <EditTextPreference
+            android:key="@string/period"
+            android:title="Уведомлять за"
+            android:defaultValue="5"
+            android:persistent="true"
+            android:numeric="integer"/>    
+        <CheckBoxPreference
+            android:key="@string/send_mail"
+            android:title="Уведомлять по почте"
+            android:persistent="true"
+            android:defaultValue="false"/> 
+        <EditTextPreference
+            android:key="@string/e_mail"
+            android:title="e-mail"
+            android:defaultValue="no-one2k@yandex.ru"
+            android:inputType="textEmailAddress"
+            android:persistent="true"/>
+        <CheckBoxPreference
+            android:key="@string/send_vk"
+            android:title="Уведомлять в VK"
+            android:persistent="true"
+            android:defaultValue="false"/> 
+        <EditTextPreference
+            android:key="@string/vk_login"
+            android:title="VK login"
+            android:defaultValue="no-one2k@yandex.ru"
+            android:persistent="true"/>
+        <EditTextPreference
+            android:key="@string/vk_pass"
+            android:inputType="textPassword"
+            android:title="VK pass"
+            android:defaultValue="11111"
+            android:persistent="true" />
+        
+    </PreferenceCategory>
+</PreferenceScreen>

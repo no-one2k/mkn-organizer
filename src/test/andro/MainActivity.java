@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 import java.util.Calendar;
 
 public class MainActivity extends ListActivity implements RunInterface {
@@ -133,16 +132,21 @@ public class MainActivity extends ListActivity implements RunInterface {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_preferences:{
-                
-                startActivityForResult(new Intent(getApplicationContext(), PrefActivity.class),PREF_ACTIVITY);
-                
-                
-            }break;
-            case R.id.menu_close:{
+            case R.id.menu_preferences: {
+
+                startActivityForResult(new Intent(getApplicationContext(), PrefActivity.class), PREF_ACTIVITY);
+
+
+            }
+            break;
+            case R.id.menu_close: {
                 stopService(new Intent(this, NotifyService.class));
                 this.finish();
-                
+
+            }
+            case R.id.menu_mail: {
+                Intent goExtendedMail = new Intent(this, ExtendedMail.class);
+				startActivity(goExtendedMail);
             }
             default:
                 return super.onOptionsItemSelected(item);
@@ -181,4 +185,46 @@ public class MainActivity extends ListActivity implements RunInterface {
         unbindService(mConnection);
         adapter.onDestroy();
     }
+
+//    private void sendMail() {
+//        try {
+//            sender_mail_async async_sending = new sender_mail_async();
+//            async_sending.execute();
+//        } catch (Exception ex) {
+//            Log.e("mail", "fail mail", ex);
+//        }
+//
+//    }
+
+//    private class sender_mail_async extends AsyncTask<Object, String, Boolean> {
+//
+//        ProgressDialog WaitingDialog;
+//
+//        @Override
+//        protected void onPreExecute() {
+//            WaitingDialog = ProgressDialog.show(MainActivity.this, "Отправка данных", "Отправляем сообщение...", true);
+//        }
+//
+//        @Override
+//        protected void onPostExecute(Boolean result) {
+//            WaitingDialog.dismiss();
+//            Toast.makeText(MainActivity.this, "Отправка завершена!!!", Toast.LENGTH_LONG).show();
+//            //((Activity)mainContext).finish();
+//        }
+//
+//        @Override
+//        protected Boolean doInBackground(Object... params) {
+//
+//            try {
+//
+//                MailSenderClass sender = new MailSenderClass("none.from.nowhere@gmail.com", "ytpme2kEmpty");
+//
+//                sender.sendMail("ta-dam", "important message", "none.from.nowhere@gmail.com", "no-one2k@yandex.ru");
+//            } catch (Exception e) {
+//                Toast.makeText(MainActivity.this, "Ошибка отправки сообщения!", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            return false;
+//        }
+//    }
 }

@@ -232,7 +232,7 @@ public class CreateActivity extends Activity {
             new DatePickerDialog.OnDateSetListener() {
 
                 public void onDateSet(DatePicker dp, int year, int month, int day) {
-                    timeDateEditingView.setText(Task.getDateFormat().format(new Date(year, month, day)));
+                    timeDateEditingView.setText(Task.getDateFormat().format(new Date(year-1900, month, day)));
                 }
             };
 }

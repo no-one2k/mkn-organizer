@@ -24,6 +24,7 @@
 /home/noone/NetBeansProjects/mkn-organizer/res/layout/calendar_day_gridcell.xml \
 /home/noone/NetBeansProjects/mkn-organizer/res/layout/main.xml \
 /home/noone/NetBeansProjects/mkn-organizer/res/layout/create_edit.xml \
+/home/noone/NetBeansProjects/mkn-organizer/res/layout/extended_mail.xml \
 /home/noone/NetBeansProjects/mkn-organizer/res/layout/list_item.xml \
 /home/noone/NetBeansProjects/mkn-organizer/res/layout/simple_calendar_view.xml \
 /home/noone/NetBeansProjects/mkn-organizer/res/layout/preference.xml \

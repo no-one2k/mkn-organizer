@@ -17,12 +17,17 @@
         </activity>
         <activity android:name="DiagramActivity">
         </activity>
+        <activity android:name="PrefActivity">
+        </activity>
         <activity android:name="SimpleCalendarViewActivity"
                   android:label="@string/app_name">
+        </activity>
+        <activity android:name="ExtendedMail">
         </activity>
         <service
             android:enabled="true" 
             android:name="NotifyService">
         </service>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest> 

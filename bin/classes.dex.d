@@ -2,6 +2,7 @@
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$style.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$drawable.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/ExtendedMail$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/SqlTasksAdapter$DbOpenHelper.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$3.class \
@@ -13,10 +14,13 @@
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$string.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$5.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity$2.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/ExtendedMail.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/TaskPriority.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/ExtendedMail$sender_mail_async.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/SimpleCalendarViewActivity$GridCellAdapter.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$color.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/BuildConfig.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/ExtendedMail$2.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$layout.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity$3.class \
@@ -32,6 +36,10 @@
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$6.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/PrefActivity.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$array.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/mail/MailSenderClass.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/mail/Mail.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/mail/JSSEProvider$1.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/mail/JSSEProvider.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$xml.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$4.class \

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MKN Organizer</string>
+    <string name="settings_name">test.andro_preferences</string>
     <string name="list_button_caption">Список</string>
     <string name="calendar_button_caption">Календарь</string>
     <string name="diagram_button_caption">Диаграмма</string>
@@ -12,6 +13,12 @@
     <string name="edit_task_title">Редактирование задачи</string>
     <string name="menu_preferences">Личный кабинет</string>
     <string name="menu_close">Выход</string>
+    <string name="send_mail">send_mail</string>
+    <string name="send_vk">send_vk</string>
+    <string name="e_mail">e_mail</string>
+    <string name="vk_login">vk_login</string>
+    <string name="vk_pass">svk_pass</string>
+    <string name="period">period</string>
     <array name="listdata">
         <item>1</item>
         <item>2</item>
