@@ -46,3 +46,6 @@
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService$1$1$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity.class \
 /home/noone/android/android-sdk-linux/tools/support/annotations.jar \
+/home/noone/NetBeansProjects/mkn-organizer/libs/additionnal.jar \
+/home/noone/NetBeansProjects/mkn-organizer/libs/mail.jar \
+/home/noone/NetBeansProjects/mkn-organizer/libs/activation.jar \

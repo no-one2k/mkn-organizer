@@ -47,7 +47,7 @@ public class ExtendedMail extends Activity {
 
             @Override
             public void onClick(View v) {
-                send3();
+                send();
             }
         });
     }
