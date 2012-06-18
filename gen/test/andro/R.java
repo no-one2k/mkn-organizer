@@ -68,9 +68,10 @@ public final class R {
         public static final int imp_radio=0x7f0a001d;
         public static final int list_button=0x7f0a0032;
         public static final int mainlayout=0x7f0a0024;
-        public static final int menu_close=0x7f0a0048;
+        public static final int menu_close=0x7f0a0049;
         public static final int menu_mail=0x7f0a0047;
         public static final int menu_preferences=0x7f0a0046;
+        public static final int menu_vk=0x7f0a0048;
         public static final int nextMonth=0x7f0a0043;
         public static final int notimp_radio=0x7f0a001e;
         public static final int num_events_imp=0x7f0a0004;
@@ -139,20 +140,21 @@ public final class R {
         public static final int calendar_button_caption=0x7f060003;
         public static final int create_task_title=0x7f060009;
         public static final int diagram_button_caption=0x7f060004;
-        public static final int e_mail=0x7f06000f;
+        public static final int e_mail=0x7f060010;
         public static final int edit_task_title=0x7f06000a;
         public static final int list_button_caption=0x7f060002;
-        public static final int menu_close=0x7f06000c;
+        public static final int menu_close=0x7f06000d;
         public static final int menu_preferences=0x7f06000b;
-        public static final int period=0x7f060012;
-        public static final int send_mail=0x7f06000d;
-        public static final int send_vk=0x7f06000e;
+        public static final int menu_vk=0x7f06000c;
+        public static final int period=0x7f060013;
+        public static final int send_mail=0x7f06000e;
+        public static final int send_vk=0x7f06000f;
         public static final int settings_name=0x7f060001;
         public static final int show_all_button_caption=0x7f060006;
         public static final int sort_button_caption=0x7f060005;
         public static final int task_psevdopic=0x7f060008;
-        public static final int vk_login=0x7f060010;
-        public static final int vk_pass=0x7f060011;
+        public static final int vk_login=0x7f060011;
+        public static final int vk_pass=0x7f060012;
     }
     public static final class style {
         public static final int calendar_event_style=0x7f080000;

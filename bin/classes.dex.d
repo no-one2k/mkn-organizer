@@ -1,7 +1,14 @@
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes.dex : \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity$4.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$style.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$drawable.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/vk/VkSession.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/vk/VkApp.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/vk/VkApp$VkDialogListener.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/vk/VkDialog$VkWebViewClient.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/vk/VkDialog.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/vk/VkDialog$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/ExtendedMail$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/SqlTasksAdapter$DbOpenHelper.class \
@@ -14,17 +21,17 @@
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$string.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$5.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity$2.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService$2.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService$2$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/ExtendedMail.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/TaskPriority.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/ExtendedMail$sender_mail_async.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/SimpleCalendarViewActivity$GridCellAdapter.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$color.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/BuildConfig.class \
-/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/ExtendedMail$2.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$layout.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity$3.class \
-/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService$1$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/SqlTasksAdapter.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$2.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/SimpleCalendarViewActivity.class \
@@ -41,9 +48,10 @@
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/mail/JSSEProvider$1.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/mail/JSSEProvider.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$1.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/MainActivity$5.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/R$xml.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity$4.class \
-/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService$1$1$1.class \
+/home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/NotifyService$3.class \
 /home/noone/NetBeansProjects/mkn-organizer/bin/classes/test/andro/CreateActivity.class \
 /home/noone/android/android-sdk-linux/tools/support/annotations.jar \
 /home/noone/NetBeansProjects/mkn-organizer/libs/additionnal.jar \

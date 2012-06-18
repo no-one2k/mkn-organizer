@@ -25,6 +25,9 @@ public class PrefActivity extends PreferenceActivity implements Preference.OnPre
         addPreferencesFromResource(R.xml.settings);
         PreferenceManager preferenceManager = this.getPreferenceManager();
         SharedPreferences sp = preferenceManager.getSharedPreferences();
+        String sharedPreferencesName = preferenceManager.getSharedPreferencesName();
+        String s = getString(R.string.send_vk);
+        boolean b=sp.getBoolean(s, true);
         Map<String, ?> allprefs = sp.getAll();
         for (String pref : allprefs.keySet()) {
             Preference findPreference = this.findPreference(pref);
@@ -39,7 +42,7 @@ public class PrefActivity extends PreferenceActivity implements Preference.OnPre
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        preference.setSummary((CharSequence) newValue);
+        preference.setSummary( (newValue==null)?null:newValue.toString());
 
         return true;
     }

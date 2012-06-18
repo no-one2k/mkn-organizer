@@ -8,6 +8,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ public class SqlTasksAdapter extends BaseAdapter {
 
     private static final String DB_NAME = "tasks_db.sqlite3";
     private static final String TABLE_NAME = "tasks";
-    private static final int DB_VESION = 8;
+    private static final int DB_VESION = 9;
     private static final String KEY_ID = "_id";
     private static final int ID_COLUMN = 0;
     private static final String KEY_NAME = "name";
@@ -45,6 +46,8 @@ public class SqlTasksAdapter extends BaseAdapter {
     private DbOpenHelper dbOpenHelper;
     private Context context;
     private Date filterDate=null;
+    private boolean showAll = false;
+    private boolean sortOnlyByDate = false;
     
     private static SqlTasksAdapter instance=null;
 
@@ -64,6 +67,24 @@ public class SqlTasksAdapter extends BaseAdapter {
         super();
         this.context = context;
         init();
+    }
+
+    public boolean isShowAll() {
+        return showAll;
+    }
+
+    public void setShowAll(boolean showAll) {
+        this.showAll = showAll;
+        refresh();
+    }
+
+    public boolean isSortOnlyByDate() {
+        return sortOnlyByDate;
+    }
+
+    public void setSortOnlyByDate(boolean sortOnlyByDate) {
+        this.sortOnlyByDate = sortOnlyByDate;
+        refresh();
     }
 
     public Date getFilterDate() {
@@ -95,32 +116,48 @@ public class SqlTasksAdapter extends BaseAdapter {
         final Task item = getItem(position);
         TextView taskTextView = (TextView) view.findViewById(R.id.taskname_view);
         taskTextView.setText(item.getName());
+        int priorColor=R.color.back;
         switch (item.getPriority()) {
             case Important: {
-                taskTextView.setTextColor(R.color.yellow);
+                priorColor=Color.YELLOW;// R.color.yellow;
             }
             break;
             case VeryImportant: {
-                taskTextView.setTextColor(R.color.red);
+                priorColor=Color.RED;
             }
             break;
             case NotImportant: {
-                taskTextView.setTextColor(R.color.blue);
+                priorColor=Color.BLUE;
             }
             break;
         }
+        taskTextView.setTextColor(priorColor);
         TextView startTextView = (TextView) view.findViewById(R.id.start_view);
         startTextView.setText(Task.getDateTimeFormat().format(item.getStartDate()));
         TextView finishTextView = (TextView) view.findViewById(R.id.finish_view);
         finishTextView.setText(Task.getDateTimeFormat().format(item.getFinishDate()));
         CheckBox endedBox = (CheckBox) view.findViewById(R.id.ended_chb);
         endedBox.setChecked(!item.isEnded());
+        endedBox.setEnabled(item.getStartDate().compareTo(Calendar.getInstance().getTime())>=0);
         return view;
     }
 
     @Override
     public int getCount() {
         return cursor.getCount();
+    }
+    
+    public void updateEnded (){
+        try {
+            ContentValues val = new ContentValues();
+            val.put(KEY_ENDED, 1);
+            String filter = KEY_FINISH + " < '" + Task.getDateTimeFormat().format(Calendar.getInstance().getTime())+"'"
+                    + " AND "+KEY_ENDED+" = 0 ";
+            int updated = database.update(TABLE_NAME, val, filter, null);
+            Log.d("updENDED", "updated = "+updated);
+        } catch (Exception e) {
+            Log.e("updENDED", e.getMessage(),e);
+        }
     }
 
     public Task getTaskByID(long id) {
@@ -132,25 +169,29 @@ public class SqlTasksAdapter extends BaseAdapter {
         }
         return null;
     }
+    
+    public Task getFirstTask (){
+        String[] columnsToTake = {KEY_ID, KEY_NAME, KEY_START, KEY_FINISH, KEY_DURATION, KEY_PRIORITY, KEY_COMMENT, KEY_ENDED};
+        String sorting=KEY_START+ " DESC ";
+        String filter=KEY_ENDED +" = 0 AND "+
+                KEY_START+" > '" + Task.getDateTimeFormat().format(Calendar.getInstance().getTime())+"'";
+        try {
+            Cursor query = database.query(TABLE_NAME, columnsToTake, filter, null, null, null, sorting);
+            if (query.moveToFirst()){
+                return cursorToTask(query);
+            }else{
+                return null;
+            }
+        } catch (Exception e) {
+            Log.e("ttttt", e.getMessage(),e);
+            return null;
+        }
+    }
 
     @Override
     public Task getItem(int position) {
         if (cursor.moveToPosition(position)) {
-            long id = cursor.getLong(ID_COLUMN);
-            String name = cursor.getString(NAME_COLUMN);
-            int duration = cursor.getInt(DURATION_COLUMN);
-            String finish = cursor.getString(FINISH_COLUMN);
-            String start = cursor.getString(START_COLUMN);
-            TaskPriority priority = TaskPriority.getByOrdinal(cursor.getInt(PRIORITY_COLUMN));
-            String comment = cursor.getString(COMMENT_COLUMN);
-            boolean ended = cursor.getInt(ENDED_COLUMN) > 0;
-            Task taskOnPositon = new Task(id, name);
-            taskOnPositon.setStartDate(start);
-            taskOnPositon.setFinishDate(finish);
-            taskOnPositon.setDurationInMinutes(duration);
-            taskOnPositon.setPriority(priority);
-            taskOnPositon.setComment(comment);
-            taskOnPositon.setEnded(ended);
+            Task taskOnPositon = cursorToTask(cursor);
             return taskOnPositon;
         } else {
             throw new CursorIndexOutOfBoundsException(
@@ -158,18 +199,51 @@ public class SqlTasksAdapter extends BaseAdapter {
         }
     }
 
+    private Task cursorToTask(Cursor curs) {
+        long id = curs.getLong(ID_COLUMN);
+        String name = curs.getString(NAME_COLUMN);
+        int duration = curs.getInt(DURATION_COLUMN);
+        String finish = curs.getString(FINISH_COLUMN);
+        String start = curs.getString(START_COLUMN);
+        TaskPriority priority = TaskPriority.getByOrdinal(curs.getInt(PRIORITY_COLUMN));
+        String comment = curs.getString(COMMENT_COLUMN);
+        boolean ended = curs.getInt(ENDED_COLUMN) > 0;
+        Task taskOnPositon = new Task(id, name);
+        taskOnPositon.setStartDate(start);
+        taskOnPositon.setFinishDate(finish);
+        taskOnPositon.setDurationInMinutes(duration);
+        taskOnPositon.setPriority(priority);
+        taskOnPositon.setComment(comment);
+        taskOnPositon.setEnded(ended);
+        return taskOnPositon;
+    }
+
     public Cursor getAllEntries() {
         String[] columnsToTake = {KEY_ID, KEY_NAME, KEY_START, KEY_FINISH, KEY_DURATION, KEY_PRIORITY, KEY_COMMENT, KEY_ENDED};
-        String dateFilter=null;
-        if (getFilterDate()!=null){
-            dateFilter = KEY_START+" like '%"+Task.getDateFormat().format(getFilterDate())+"%'";
+        String sorting=null;
+        if (isSortOnlyByDate()){
+            sorting=KEY_ENDED+" ASC, "+KEY_START+ " DESC ";
+        }else{
+            sorting=KEY_ENDED+" ASC, "+KEY_PRIORITY+" , "+KEY_START+ " DESC ";
         }
         try {
-            return database.query(TABLE_NAME, columnsToTake, dateFilter, null, null, null, KEY_ID);
+            return database.query(TABLE_NAME, columnsToTake, makeFilter(), null, null, null, sorting);
         } catch (Exception e) {
             Log.e("ttttt", e.getMessage(),e);
             return null;
         }
+    }
+
+    private String makeFilter() {
+        String result=null;
+        if (getFilterDate()!=null){
+            result = KEY_START+" like '%"+Task.getDateFormat().format(getFilterDate())+"%'";
+        }
+        if (!isShowAll()){
+            String endedFilter=KEY_ENDED+" = 0";
+            result=(result==null)?endedFilter: result+" AND "+endedFilter;
+        }
+        return result;
     }
 
     public long addItem(Task task) {
@@ -231,6 +305,7 @@ public class SqlTasksAdapter extends BaseAdapter {
         if (cursor.getCount() == 0) {
             addInitValues();
         }
+        updateEnded();
     }
 
     private void addInitValues() {

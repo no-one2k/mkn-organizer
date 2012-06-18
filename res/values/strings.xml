@@ -12,6 +12,7 @@
     <string name="create_task_title">Создание новой задачи</string>
     <string name="edit_task_title">Редактирование задачи</string>
     <string name="menu_preferences">Личный кабинет</string>
+    <string name="menu_vk">VK</string>
     <string name="menu_close">Выход</string>
     <string name="send_mail">send_mail</string>
     <string name="send_vk">send_vk</string>

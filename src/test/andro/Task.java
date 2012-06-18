@@ -6,8 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -15,7 +13,7 @@ import java.util.logging.Logger;
  */
 public class Task {
     
-    private static final String DATE_FORMAT = "dd.MM.yyyy";
+    private static final String DATE_FORMAT = "yyyy/MM/dd";
     private static SimpleDateFormat dateFormat= new SimpleDateFormat(DATE_FORMAT,Locale.US);
 
     public static SimpleDateFormat getDateFormat() {
@@ -133,7 +131,7 @@ public class Task {
         finishDate=string2Date (finish);
     }
 
-    private Date string2Date(String stringDate) {
+    public static Date string2Date(String stringDate) {
         if ((stringDate==null)|| ("".equalsIgnoreCase(stringDate))){
             return null;
                   }

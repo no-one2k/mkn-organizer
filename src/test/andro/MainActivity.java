@@ -12,7 +12,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ToggleButton;
 import java.util.Calendar;
+import test.andro.vk.VkApp;
 
 public class MainActivity extends ListActivity implements RunInterface {
 
@@ -20,9 +22,11 @@ public class MainActivity extends ListActivity implements RunInterface {
     public static final int CREATE_EDIT_ACTIVITY = 100;
     public static final String FERTERTERTE = "ferterterte";
     private SqlTasksAdapter adapter;
-    Button btnCalendar;
+    private Button btnCalendar;
     private Button btnAdd;
     private Button btnDiagram;
+    private ToggleButton btnShowAll;
+    private ToggleButton btnSort;
     // объект для посылки команд сервису
     private Messenger mService = null;
     // объект для обработки ответов сервиса
@@ -31,7 +35,7 @@ public class MainActivity extends ListActivity implements RunInterface {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case NotifyService.TEST_CODE:
+                case NotifyService.REFRESH_CODE:
                     // получить данные, возвращенные сервисом и что-то с ними сделать
                     // Object obj = msg.getData().getSerializable("date");
                     // ...
@@ -56,10 +60,9 @@ public class MainActivity extends ListActivity implements RunInterface {
     private RunInterface runInterfac;
 
     // посылаем команду сервису
-    // подробности смотри в аналогичном коде сервиса
-    private void testService() {
+    private void refreshService() {
         Bundle bundle = new Bundle();
-        Message msg = Message.obtain(null, NotifyService.TEST_CODE);
+        Message msg = Message.obtain(null, NotifyService.REFRESH_CODE);
         msg.setData(bundle);
         // заполняем поле объектом, который сервис будет
         // использовать для посылки ответа
@@ -79,22 +82,12 @@ public class MainActivity extends ListActivity implements RunInterface {
         runInterfac = new RunInterfaceImpl(this);
         setContentView(R.layout.main);
         adapter = SqlTasksAdapter.getInstance(this);
-        adapter.setFilterDate(Calendar.getInstance().getTime());
+        //adapter.setFilterDate(Calendar.getInstance().getTime());
         setListAdapter(adapter);
         btnCalendar = (Button) findViewById(R.id.calendar_button);
-//        btnCalendar.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View arg0) {
-//                runCalendarActivity();
-//            }
-//        });
+
         btnDiagram = (Button) findViewById(R.id.diagram_button);
-//        btnDiagram.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View arg0) {
-//                runDiagramActivity();
-//            }
-//        });
+
         btnAdd = (Button) findViewById(R.id.add_button);
         btnAdd.setOnClickListener(new View.OnClickListener() {
 
@@ -103,11 +96,35 @@ public class MainActivity extends ListActivity implements RunInterface {
             }
         });
 
+        btnShowAll = (ToggleButton) findViewById(R.id.show_all_button);
+        btnShowAll.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View arg0) {
+                showAll();
+            }
+        });
+
+        btnSort = (ToggleButton) findViewById(R.id.sort_button);
+        btnSort.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View arg0) {
+                changeSort();
+            }
+        });
+
         boolean res = bindService(new Intent(this, NotifyService.class),
                 mConnection, Context.BIND_AUTO_CREATE);
         // get
         //  btnCalendar.setBackgroundDrawable(android.R.drawable.ic_menu_compass);
         //btnCalendar.performClick();
+    }
+
+    private void showAll() {
+        adapter.setShowAll(!adapter.isShowAll());
+    }
+
+    private void changeSort() {
+        adapter.setSortOnlyByDate(!adapter.isSortOnlyByDate());
     }
 
     public void runListActivity(View v) {
@@ -133,10 +150,7 @@ public class MainActivity extends ListActivity implements RunInterface {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_preferences: {
-
                 startActivityForResult(new Intent(getApplicationContext(), PrefActivity.class), PREF_ACTIVITY);
-
-
             }
             break;
             case R.id.menu_close: {
@@ -144,10 +158,17 @@ public class MainActivity extends ListActivity implements RunInterface {
                 this.finish();
 
             }
+            break;
             case R.id.menu_mail: {
                 Intent goExtendedMail = new Intent(this, ExtendedMail.class);
-				startActivity(goExtendedMail);
+                startActivity(goExtendedMail);
             }
+            break;
+                case R.id.menu_vk: {
+                sendVK();
+               
+            }
+            break;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -171,6 +192,7 @@ public class MainActivity extends ListActivity implements RunInterface {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         adapter.refresh();
+        refreshService();
     }
 
     @Override
@@ -186,45 +208,9 @@ public class MainActivity extends ListActivity implements RunInterface {
         adapter.onDestroy();
     }
 
-//    private void sendMail() {
-//        try {
-//            sender_mail_async async_sending = new sender_mail_async();
-//            async_sending.execute();
-//        } catch (Exception ex) {
-//            Log.e("mail", "fail mail", ex);
-//        }
-//
-//    }
-
-//    private class sender_mail_async extends AsyncTask<Object, String, Boolean> {
-//
-//        ProgressDialog WaitingDialog;
-//
-//        @Override
-//        protected void onPreExecute() {
-//            WaitingDialog = ProgressDialog.show(MainActivity.this, "Отправка данных", "Отправляем сообщение...", true);
-//        }
-//
-//        @Override
-//        protected void onPostExecute(Boolean result) {
-//            WaitingDialog.dismiss();
-//            Toast.makeText(MainActivity.this, "Отправка завершена!!!", Toast.LENGTH_LONG).show();
-//            //((Activity)mainContext).finish();
-//        }
-//
-//        @Override
-//        protected Boolean doInBackground(Object... params) {
-//
-//            try {
-//
-//                MailSenderClass sender = new MailSenderClass("none.from.nowhere@gmail.com", "ytpme2kEmpty");
-//
-//                sender.sendMail("ta-dam", "important message", "none.from.nowhere@gmail.com", "no-one2k@yandex.ru");
-//            } catch (Exception e) {
-//                Toast.makeText(MainActivity.this, "Ошибка отправки сообщения!", Toast.LENGTH_SHORT).show();
-//            }
-//
-//            return false;
-//        }
-//    }
+    private void sendVK() {
+        VkApp va=new VkApp(this);
+        va.showLoginDialog();
+        va.postToWall(FERTERTERTE);
+    }
 }

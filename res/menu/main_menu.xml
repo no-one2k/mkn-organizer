@@ -4,6 +4,8 @@
        android:title="@string/menu_preferences" /> 
     <item android:id="@+id/menu_mail"
        android:title="mail" />
+     <item android:id="@+id/menu_vk"
+       android:title="@string/menu_vk" />
     <item android:id="@+id/menu_close"
        android:title="@string/menu_close" />
 </menu>

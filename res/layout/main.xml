@@ -9,17 +9,21 @@
 	android:id="@+id/widget15__1"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content">
-<Button
+<ToggleButton
 	android:id="@+id/sort_button"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:text="@string/sort_button_caption"
+        android:textOn="@string/sort_button_caption"
+        android:textOff="@string/sort_button_caption"
 	android:layout_weight="1000" />
-<Button
+<ToggleButton
 	android:id="@+id/show_all_button"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:text="@string/show_all_button_caption"
+        android:textOn="@string/show_all_button_caption"
+        android:textOff="@string/show_all_button_caption"
 	android:layout_weight="1000" />
 <Button
 	android:id="@+id/add_button"
