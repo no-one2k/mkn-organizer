@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.*;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -25,6 +24,8 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
     private GridView calendarView;
     private GridCellAdapter adapter;
     private Calendar _calendar;
+    //private int month,
+    private SqlTasksAdapter taskAdapter;
     private int month, year;
     private final DateFormat dateFormatter = new DateFormat();
     private static final String dateTemplate = "MMMM yyyy";
@@ -55,6 +56,7 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
         try {
             setContentView(R.layout.simple_calendar_view);
             this.setTitle(null);
+            taskAdapter = SqlTasksAdapter.getInstance(getApplicationContext());
             
             _calendar = Calendar.getInstance(Locale.getDefault());
             month = _calendar.get(Calendar.MONTH) + 1;
@@ -80,7 +82,10 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
             //calendarView.setMinimumHeight(adapter.getView(1, null, null).getHeight()*4);
             calendarView.setMinimumHeight(2500);
             listView = (ListView)findViewById(android.R.id.list);
-            listView.setAdapter(SqlTasksAdapter.getInstance(this));
+            
+            listView.setAdapter(taskAdapter);
+            taskAdapter.setFilterDate(_calendar.getTime());
+            taskAdapter.setShowAll(true);
         } catch (Exception e) {
             Log.e("ttt", e.getMessage(),e);
         }
@@ -149,6 +154,7 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
         private TextView num_events_per_day;
         private final HashMap eventsPerMonthMap;
         private final SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MMM-yyyy");
+        private String taskPsevdoMarker;
 
         // Days in Current Month
         public GridCellAdapter(Context context, int textViewResourceId, int month, int year) {
@@ -157,6 +163,7 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
             this.list = new ArrayList<String>();
             this.month = month;
             this.year = year;
+            taskPsevdoMarker = getString(R.string.task_psevdopic);
 
             Log.d(tag, "==> Passed in Date FOR Month: " + month + " " + "Year: " + year);
             Calendar calendar = Calendar.getInstance();
@@ -293,20 +300,16 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
          * @return
          */
         private HashMap findNumberOfEventsPerMonth(int year, int month) {
-            HashMap map = new HashMap<String, Integer>();
-            // DateFormat dateFormatter2 = new DateFormat();
-            //						
-            // String day = dateFormatter2.format("dd", dateCreated).toString();
-            //
-            // if (map.containsKey(day))
-            // {
-            // Integer val = (Integer) map.get(day) + 1;
-            // map.put(day, val);
-            // }
-            // else
-            // {
-            // map.put(day, 1);
-            // }
+            HashMap map = new HashMap<Integer, int[]>();
+            Map<Integer, List<Task>> tasks = taskAdapter.getEntriesForMonth(year, month);
+            for (Integer day : tasks.keySet()) {
+                List<Task> get = tasks.get(day);
+                int[] markers=new int[TaskPriority.values().length];
+                for (Task t : get) {
+                    markers[t.getPriority().ordinal()]++;
+                }
+                map.put(day, markers);
+            }
             return map;
         }
 
@@ -331,29 +334,26 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
             gridcell = (Button) row.findViewById(R.id.calendar_day_gridcell);
             gridcell.setOnClickListener(this);
             
-            String taskPsevdoMarker = getString(R.string.task_psevdopic);
-            TextView eventsTextview = (TextView) row.findViewById(R.id.num_events_very_imp);
-            eventsTextview.setText(taskPsevdoMarker);
-            ///eventsTextview.set
+            TextView[] markerViews=new TextView[TaskPriority.values().length];
+            markerViews[TaskPriority.VeryImportant.ordinal()] = (TextView)row.findViewById(R.id.num_events_very_imp);
+            markerViews[TaskPriority.Important.ordinal()] =  (TextView)row.findViewById(R.id.num_events_imp);
+            markerViews[TaskPriority.NotImportant.ordinal()] =  (TextView)row.findViewById(R.id.num_events_not_imp);
             
-            TextView eventsTextview2 = (TextView) row.findViewById(R.id.num_events_imp);
-            eventsTextview2.setText(taskPsevdoMarker+taskPsevdoMarker);
-            
-            TextView eventsTextview3 = (TextView) row.findViewById(R.id.num_events_not_imp);
-            eventsTextview3.setText(taskPsevdoMarker);
-
             // ACCOUNT FOR SPACING
 
             Log.d(tag, "Current Day: " + getCurrentDayOfMonth());
             String[] day_color = list.get(position).split("-");
-            String theday = day_color[0];
+            String theday =day_color[0];
+            
+            int day = Integer.valueOf(theday);
             String themonth = day_color[2];
             String theyear = day_color[3];
             if ((!eventsPerMonthMap.isEmpty()) && (eventsPerMonthMap != null)) {
-                if (eventsPerMonthMap.containsKey(theday)) {
-                    num_events_per_day = (TextView) row.findViewById(R.id.num_events_very_imp);
-                    Integer numEvents = (Integer) eventsPerMonthMap.get(theday);
-                    num_events_per_day.setText(numEvents.toString());
+                if (eventsPerMonthMap.containsKey(day)) {
+                    int[] markers=(int[]) eventsPerMonthMap.get(day);
+                    for (TaskPriority tp : TaskPriority.values()) {
+                         markerViews[tp.ordinal()].setText(getPsevdoMarker(markers[tp.ordinal()]));
+                    }
                 }
             }
 
@@ -374,10 +374,22 @@ public class SimpleCalendarViewActivity extends Activity implements OnClickListe
             //rowHeight
             return row;
         }
+        
+        private String getPsevdoMarker (int count){          
+            String result="";
+            for (int i = 0; i < count; i++) {
+                result+=taskPsevdoMarker;
+            }
+            return result;
+        }
 
         @Override
         public void onClick(View view) {
-            
+            String[] tags = view.getTag().toString().split("-");
+            int day = Integer.valueOf(tags[0]);
+//            int mmonth = Integer.valueOf(tags[1]);
+//            int yyear = Integer.valueOf(tags[2]);
+            taskAdapter.setFilterDate(new Date(year-1900, month-1, day));
         }
 
         public int getCurrentDayOfMonth() {

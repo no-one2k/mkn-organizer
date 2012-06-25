@@ -191,6 +191,9 @@ public class MainActivity extends ListActivity implements RunInterface {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        adapter.setFilterDate(null);
+        adapter.setShowAll(btnShowAll.isChecked());
+        adapter.setSortOnlyByDate(btnSort.isChecked());
         adapter.refresh();
         refreshService();
     }

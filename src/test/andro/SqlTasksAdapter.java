@@ -15,8 +15,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 public class SqlTasksAdapter extends BaseAdapter {
 
@@ -220,7 +219,7 @@ public class SqlTasksAdapter extends BaseAdapter {
 
     public Cursor getAllEntries() {
         String[] columnsToTake = {KEY_ID, KEY_NAME, KEY_START, KEY_FINISH, KEY_DURATION, KEY_PRIORITY, KEY_COMMENT, KEY_ENDED};
-        String sorting=null;
+        String sorting;
         if (isSortOnlyByDate()){
             sorting=KEY_ENDED+" ASC, "+KEY_START+ " DESC ";
         }else{
@@ -231,6 +230,33 @@ public class SqlTasksAdapter extends BaseAdapter {
         } catch (Exception e) {
             Log.e("ttttt", e.getMessage(),e);
             return null;
+        }
+    }
+    
+    public Map<Integer,List<Task>> getEntriesForMonth(int year,int month) {
+        String[] columnsToTake = {KEY_ID, KEY_NAME, KEY_START, KEY_FINISH, KEY_DURATION, KEY_PRIORITY, KEY_COMMENT, KEY_ENDED};
+        try {
+            String format = Task.getDateFormat().format(new Date(year-1900, month-1, 1));
+            format=format.substring(0, format.length()-2);
+            String filter=KEY_START+" like '"+format+"%'";
+            Cursor query = database.query(TABLE_NAME, columnsToTake,filter, null, null, null, null);
+            Map<Integer, List<Task>> result = new TreeMap<Integer, List<Task>> ();
+            while (query.moveToNext()){
+                Task t = cursorToTask(query);
+                int dayOfMonth = t.getStartDate().getDate();
+                List<Task> get = result.get(dayOfMonth);
+                if (get==null){
+                    get=new ArrayList<Task>();
+                    get.add(t);
+                    result.put(dayOfMonth, get);
+                }else{
+                    get.add(t);
+                }
+            }
+            return result;
+        } catch (Exception e) {
+            Log.e("ttttt", e.getMessage(),e);
+            return new TreeMap<Integer, List<Task>> ();
         }
     }
 
