@@ -171,7 +171,7 @@ public class SqlTasksAdapter extends BaseAdapter {
     
     public Task getFirstTask (){
         String[] columnsToTake = {KEY_ID, KEY_NAME, KEY_START, KEY_FINISH, KEY_DURATION, KEY_PRIORITY, KEY_COMMENT, KEY_ENDED};
-        String sorting=KEY_START+ " DESC ";
+        String sorting=KEY_START+ " ASC ";
         String filter=KEY_ENDED +" = 0 AND "+
                 KEY_START+" > '" + Task.getDateTimeFormat().format(Calendar.getInstance().getTime())+"'";
         try {

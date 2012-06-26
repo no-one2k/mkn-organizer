@@ -176,7 +176,7 @@ public class MainActivity extends ListActivity implements RunInterface {
     }
 
     public void runEditActivity(int position) {
-        setSelection(position);
+        //setSelection(position);
         Long id = null;
         if (position != -1) {
             Task item = adapter.getItem(position);
