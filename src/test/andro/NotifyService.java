@@ -88,7 +88,7 @@ public class NotifyService extends Service {
         Date now = Calendar.getInstance().getTime();
         Date start = t.getStartDate();
         long diff = start.getTime() - now.getTime();
-        return 1000;// (Math.abs(diff) / 1000) * 1000;
+        return (Math.abs(diff) / 1000) * 1000;
     }
 
     private void prepareTimer() {
@@ -96,6 +96,8 @@ public class NotifyService extends Service {
             timer = new Timer("tst");
         } else {
             timer.cancel();
+            timer.purge();
+            timer= new Timer("tst");
         }
     }
 
@@ -135,9 +137,9 @@ public class NotifyService extends Service {
 
     private void doSendMail(String text) {
          try {
-            MailSenderClass sender = new MailSenderClass("none.from.nowhere@gmail.com", "ytpme2kEmpty");
+            MailSenderClass sender = new MailSenderClass("user@gmail.com", "password");
             sender.setSetcurityProvider();
-            sender.sendMail("Organizer", text, "none.from.nowhere@gmail.com", email);
+            sender.sendMail("Organizer", text, "to@gmail.com", email);
 
             //                sender_mail_async async_sending = new sender_mail_async();
             //                async_sending.execute();

@@ -17,7 +17,7 @@
         <EditTextPreference
             android:key="@string/e_mail"
             android:title="e-mail"
-            android:defaultValue="no-one2k@yandex.ru"
+            android:defaultValue="to@yandex.ru"
             android:inputType="textEmailAddress"
             android:persistent="true"/>
         <CheckBoxPreference
@@ -28,7 +28,7 @@
         <EditTextPreference
             android:key="@string/vk_login"
             android:title="VK login"
-            android:defaultValue="no-one2k@yandex.ru"
+            android:defaultValue="vklogin"
             android:persistent="true"/>
         <EditTextPreference
             android:key="@string/vk_pass"

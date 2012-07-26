@@ -58,9 +58,9 @@ public class ExtendedMail extends Activity {
 
     private void send() {
         try {
-            MailSenderClass sender = new MailSenderClass("none.from.nowhere@gmail.com", "ytpme2kEmpty");
+            MailSenderClass sender = new MailSenderClass("user@gmail.com", "password");
             sender.setSetcurityProvider();
-            sender.sendMail("ta-dam", "important message", "none.from.nowhere@gmail.com", "no-one2k@yandex.ru");
+            sender.sendMail("ta-dam", "important message", "user@gmail.com", "to@yandex.ru");
 
             //                sender_mail_async async_sending = new sender_mail_async();
             //                async_sending.execute();
@@ -71,11 +71,11 @@ public class ExtendedMail extends Activity {
     }
 
     private void send2() {
-        Mail m = new Mail("none.from.nowhere@gmail.com", "ytpme2kEmpty");
+        Mail m = new Mail("user@gmail.com", "password");
 
-        String[] toArr = {"no-one2k@yandex.ru"};
+        String[] toArr = {"to@yandex.ru"};
         m.setTo(toArr);
-        m.setFrom("no-one2k@yandex.ru");
+        m.setFrom("to@yandex.ru");
         m.setSubject("This is an email sent using my Mail JavaMail wrapper from an Android device.");
         m.setBody("Email body.");
 
